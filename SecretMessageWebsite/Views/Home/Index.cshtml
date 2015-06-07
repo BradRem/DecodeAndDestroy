@@ -1,0 +1,59 @@
+﻿@model SecretMessageWebsite.Models.SecretMessageModel
+
+@{
+    ViewBag.Title = "Decode and Destroy";
+}
+
+<h1>Decode and Destroy</h1>
+<h4>Create a one-time-use link to an encrypted message.</h4>
+<p>&nbsp;</p>
+<div class="lead">
+    For sending sensitive messages such as passwords or other information in a secure
+    and encrypted manner.  Once a message is read, it will be deleted.
+</div>
+
+@if (!string.IsNullOrWhiteSpace(Model.LinkUrl))
+{
+    <div class="panel panel-success">
+        <div class="panel-heading">Encrypted Message Created</div>
+        <div class="panel-body">
+<pre>
+An encrypted message has been created on DecodeAndDestroy.com. You can access the message by clicking on the following link. Once the message is retrieved, it will be deleted and will no longer be available. The message will also be automatically deleted within 24 hours if not retrieved by then.
+
+@Model.LinkUrl
+</pre>
+        </div>
+    </div>
+}
+
+<div class="well">
+    @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { @class = "form-horizontal" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-group">
+            <label class="control-label col-md-3">Text to encrypt:</label>
+            <div class="col-md-9">
+                <textarea class="form-control" id="plainText" name="plainText" rows="7" cols="50"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-3">
+                <label class="control-label">
+                    Strong password (optional):
+                </label>
+                <span data-toggle="tooltip" data-title="You can optionally specify that the following password be required to access the message"
+                      class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+            </div>
+            <div class="col-md-9">
+                <input type="password" class="form-control" name="key" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-3 col-md-9">
+                <input type="submit" class="btn btn-primary" value="Create link" />
+            </div>
+        </div>
+    }
+</div>
+

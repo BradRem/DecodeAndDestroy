@@ -1,0 +1,34 @@
+﻿@model SecretMessageWebsite.Models.PromptRetrieveModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+
+@using (Html.BeginForm("ShowMessage", "Message", new { id = Model.LinkId, code = Model.Code }, FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="form-group">
+        <h2>View Message</h2>
+    </div>
+    <div class="form-group">
+        Once you retrieve this message it will be deleted and nobody will be able to retrieve it again. This message will also expire within 24 hours of the time it was created and be deleted.
+    </div>
+
+    if (string.IsNullOrWhiteSpace(Model.Code))
+    {
+        <div class="form-group">
+            <label class="control-label">Password:</label>
+            <div>
+                <input type="password" class="form-control" name="key" />
+            </div>
+        </div>
+    }
+    <div class="form-group">
+        <div>
+            <input type="submit" value="Retrieve Message" class="btn btn-primary" />
+        </div>
+    </div>
+}
+

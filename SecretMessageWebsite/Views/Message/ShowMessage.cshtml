@@ -1,0 +1,26 @@
+﻿@model SecretMessageWebsite.Models.DisplayMessageModel
+
+@{
+    ViewBag.Title = "Message";
+}
+
+<h2>View Message</h2>
+
+
+@if (string.IsNullOrWhiteSpace(Model.Message))
+{
+    <div class="alert alert-danger">
+        @Model.ErrorMessage
+    </div>
+}
+else
+{
+    <div>Please make note of the following message because it will no longer be able to be retrieved again:</div>
+
+    <div class="well"><h5>@Model.Message</h5></div>
+}
+<p>&nbsp</p>
+<hr />
+
+@Html.ActionLink("Create an use-once encrypted message", "Index", "Home", null, new { @class = "btn btn-primary" })
+

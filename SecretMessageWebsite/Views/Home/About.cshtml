@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "About Decode and Destroy";
+}
+
+<h2>About Decode and Destroy</h2>
+
+<p>&nbsp;</p>
+<div>
+    <i>Decode and Destroy</i> is a service that temporily stores encrypted messages that can only be retrieved by an
+    individual that is given the proper website link.  Once the message is retrieved the first time, it will be deleted
+    and no longer be available from subsequent attempts.  If the message is not retrieved within 24 hours, it will
+    be automatically deleted.
+</div>
+<p>&nbsp;</p>
+<div>
+    Messages are automatically encoded with the Rijndael encryption algorithm using a random key and stored in the
+    Decode and Destroy database.  The key is provided in the website link and is not stored by Decode and Destroy
+    so we do not have access to the plaintext contents of the message.
+</div>
+<p>&nbsp;</p>
+<div>
+    A user simply clicks on the link created by Decode and Destroy where he/she will be able to easily retrieve
+    the message.
+</div>
+<p>&nbsp;</p>
+<div>
+    Optionally, a user can specify a strong password that can be used as the key to encrypt the message. When a
+    password is used, the recepient of the message will be prompted to enter the password after he/she clicks
+    on the website link.  As with the automatically generated key, we do not record the password and do not
+    have access to the contents of the plaintext message.
+</div>
