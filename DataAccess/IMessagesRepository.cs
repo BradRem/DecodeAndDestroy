@@ -9,6 +9,6 @@ namespace DataAccess
         void SaveMessage(MessageDto message);
         EncodedDataDto RetrieveEncodedData(string linkId, DateTime oldestDate);
         void DeleteMessage(string linkId);
-        void DeleteMessagesOlderThanUTCDateOf(DateTime utcDate);
+        int DeleteMessagesOlderThanUTCDateOf(DateTime utcDate);
     }
 }

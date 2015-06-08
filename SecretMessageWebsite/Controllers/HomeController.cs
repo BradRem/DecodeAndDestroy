@@ -56,13 +56,7 @@ namespace SecretMessageWebsite.Controllers
             public DateTime Date { get; set; }
         }
 
-        [HttpPost]
-        public void RemoveOldMessages(RemoveOldMessageModel model)
-        {
-            var service = new ManageDatabaseService();
-            service.RemoveOldMessages(model.Date);
-        }
-
+ 
         public ActionResult About()
         {
             return View();

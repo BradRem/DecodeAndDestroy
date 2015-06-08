@@ -58,15 +58,18 @@ namespace DataAccess.Ef
 
 
 
-        public void DeleteMessagesOlderThanUTCDateOf(DateTime utcDate)
+        public int DeleteMessagesOlderThanUTCDateOf(DateTime utcDate)
         {
             using (var dbContext = new SecretMessageContext())
             {
                 var rows = dbContext.Messages
                     .Where(x => x.CreatedOn < utcDate);
 
+                var count = rows.Count();
                 dbContext.Messages.RemoveRange(rows);
                 dbContext.SaveChanges();
+
+                return count;
             }
         }
     }
