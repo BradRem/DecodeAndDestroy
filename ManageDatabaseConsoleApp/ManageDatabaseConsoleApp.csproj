@@ -62,7 +62,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\SecretMessageWebsite.pubxml" />
     <None Include="Properties\webjob-publish-settings.json" />
@@ -85,9 +87,9 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DataAccess.Ef\DataAccess.Ef.csproj">
-      <Project>{c87817ac-98bb-4053-9ad5-27b279736dd0}</Project>
-      <Name>DataAccess.Ef</Name>
+    <ProjectReference Include="..\DataAccess.TableStorage\DataAccess.TableStorage.csproj">
+      <Project>{c8ab2979-9cb1-4470-b0da-d9cd73a70645}</Project>
+      <Name>DataAccess.TableStorage</Name>
     </ProjectReference>
     <ProjectReference Include="..\DataAccess\DataAccess.csproj">
       <Project>{faa0af8e-15fb-4f8e-bf57-058dc810e487}</Project>
