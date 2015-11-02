@@ -17,6 +17,7 @@ namespace SecretMessageWebsite.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
         public ActionResult Index(string plainText, string key)
         {
             var service = new SecretMessageSaverService(key);
